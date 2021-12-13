@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.codepath.couple">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <queries>
+
+        <!-- Camera -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+
+        </intent>
+    </queries>
+
+    <application
+
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="couple"
+        android:roundIcon="@mipmap/logo"
+        android:name="com.codepath.couple.ParseApplication"
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:theme="@style/Theme.couple">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.codepath.couple"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider"
+                tools:replace="android:resource" />
+        </provider>
+
+        <activity
+            android:name=".WelcomePageActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="com.codepath.couple.SignupActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="com.codepath.couple.FilterActivity"
+            android:exported="true" />
+
+
+        <activity
+            android:name="com.codepath.couple.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.codepath.couple.MainActivity">
+
+        </activity>
+
+
+
+    </application>
+
+</manifest>
